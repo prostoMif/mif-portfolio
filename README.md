@@ -2,6 +2,8 @@
 
 Next.js + Tailwind, двуязычность `ru` / `en`.
 
+**Свой домен (DNS):** см. [DNS.md](./DNS.md) — записи для `mif-portfolio.com` и Railway.
+
 ## Запуск
 
 ```bash
