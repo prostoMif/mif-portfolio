@@ -40,14 +40,14 @@ TELEGRAM_CHAT_ID=твой_chat_id
 
 ### Railway
 
-Проект собирается в режиме **`output: "standalone"`**: после `npm run build` старт — **`npm run start`** (`cross-env HOSTNAME=0.0.0.0 node .next/standalone/server.js`). В Linux-контейнерах иначе **`HOSTNAME`** часто указывает на имя машины, и Next слушает не `0.0.0.0` → **502**. Порт — из **`PORT`** (Railway подставляет сам). Проверка: **GET `/api/health`** должен вернуть `{"ok":true}`.
+Проект собирается в режиме **`output: "standalone"`**: после `npm run build` старт — **`npm run start`** (скрипт `scripts/start-server.cjs` выставляет **`HOSTNAME=0.0.0.0`** до `require` сервера, иначе в контейнере часто **502** / *Application failed to respond*). Порт — из **`PORT`** (Railway подставляет сам). Проверка: **GET `/api/health`** → `{"ok":true}`.
 
 #### `Application failed to respond`
 
 Обычно: деплой «зелёный», но процесс падает или не отвечает на health check.
 
 1. **Deployments** → последний деплой → **View logs** — ищи `Error`, `Cannot find module`, `EADDRINUSE`, stack trace.
-2. **Settings** → **Deploy** → **Start Command** — **`npm run start`**. В **Variables** при необходимости добавь **`HOSTNAME=0.0.0.0`** (дублирует то, что уже в скрипте через `cross-env`).
+2. **Settings** → **Deploy** → **Start Command** — **`npm run start`**. В **Variables** при желании можно добавить **`HOSTNAME=0.0.0.0`** (дублирует то, что уже в `start-server.cjs`).
 3. **Root Directory** в Railway — корень репозитория, где лежит `package.json` (если репо не монорепо — оставь пустым).
 4. Переменная **`NODE_ENV=production`** на Railway обычно выставляется сама; `PORT` не трогай.
 5. После пуша изменений сделай **Redeploy**.

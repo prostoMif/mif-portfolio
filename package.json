@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/copy-standalone.mjs",
-    "start": "cross-env HOSTNAME=0.0.0.0 node .next/standalone/server.js",
+    "start": "node scripts/start-server.cjs",
     "lint": "eslint"
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
     "next": "16.2.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
