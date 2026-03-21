@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && node scripts/copy-standalone.mjs",
+    "start": "node scripts/run-standalone.mjs",
     "lint": "eslint"
   },
   "dependencies": {
