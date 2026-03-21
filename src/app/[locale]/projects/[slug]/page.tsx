@@ -14,7 +14,7 @@ export default async function ProjectDetails({
 
   return (
     <section className="container py-14 space-y-6">
-      <p className="text-xs text-accent">{project.status}</p>
+      <p className="text-xs text-accent">{project.status[locale]}</p>
       <h1 className="text-3xl font-semibold">{project.title[locale]}</h1>
       <p className="text-muted max-w-3xl">{project.details[locale]}</p>
       <div className="flex flex-wrap gap-2 pt-2">

@@ -2,7 +2,8 @@ export type Locale = "ru" | "en";
 
 export type Project = {
   slug: string;
-  status: "Production" | "MVP / Demo" | "Concept";
+  /** Короткая метка статуса для карточек (RU/EN). */
+  status: Record<Locale, string>;
   title: Record<Locale, string>;
   short: Record<Locale, string>;
   details: Record<Locale, string>;
@@ -10,6 +11,18 @@ export type Project = {
 };
 
 export const locales: Locale[] = ["ru", "en"];
+
+/** Telegram для контактов (без @ в username для ссылки). */
+export const contactTelegram = {
+  username: "prosto_m1f",
+  url: "https://t.me/prosto_m1f",
+} as const;
+
+/**
+ * Форма на странице контактов (компонент + `/api/contact` + Telegram уже готовы).
+ * Поставь `true`, когда захочешь показать форму посетителям.
+ */
+export const CONTACT_FORM_ENABLED = false;
 
 export const t = {
   ru: {
@@ -28,7 +41,8 @@ export const t = {
     heroPrimary: "Смотреть проекты",
     heroSecondary: "Связаться",
     projectsTitle: "Избранные проекты",
-    projectsText: "Часть кейсов - рабочие демо, часть - концепты и MVP.",
+    projectsText:
+      "Есть полностью доведённые портфолио-кейсы «как заказ», демо и бот, готовый к запуску (пока не деплоил).",
     servicesTitle: "Услуги",
     servicesList: [
       "Лендинги и многостраничные сайты",
@@ -40,12 +54,16 @@ export const t = {
     aboutText:
       "Работаю как fullstack: frontend, backend, базы, интеграции. Фокусируюсь на понятной архитектуре, скорости разработки и результате для клиента.",
     contactTitle: "Контакты",
-    contactText: "Пиши в Telegram или отправь сообщение через форму.",
+    contactText: "Пиши в Telegram — отвечу там.",
+    contactTextWithForm:
+      "Пиши в Telegram или отправь сообщение через форму на сайте.",
     form: {
       name: "Имя",
       message: "Сообщение",
       submit: "Отправить",
-      sent: "Сообщение отправлено (демо-режим).",
+      sent: "Сообщение отправлено. Отвечу в Telegram.",
+      error:
+        "Не удалось отправить. Напиши напрямую в Telegram: @prosto_m1f",
     },
   },
   en: {
@@ -64,7 +82,8 @@ export const t = {
     heroPrimary: "View projects",
     heroSecondary: "Contact me",
     projectsTitle: "Selected projects",
-    projectsText: "Some cases are working demos, some are concepts and MVPs.",
+    projectsText:
+      "Portfolio-style briefs finished end-to-end, demos, and a bot ready to deploy (not launched yet).",
     servicesTitle: "Services",
     servicesList: [
       "Landing pages and multi-page websites",
@@ -76,12 +95,15 @@ export const t = {
     aboutText:
       "I work as a fullstack developer: frontend, backend, databases and integrations. I focus on clear architecture, fast delivery and practical client value.",
     contactTitle: "Contact",
-    contactText: "Message me on Telegram or use the contact form.",
+    contactText: "Message me on Telegram — I'll reply there.",
+    contactTextWithForm:
+      "Message me on Telegram or use the contact form below.",
     form: {
       name: "Name",
       message: "Message",
       submit: "Send",
-      sent: "Message sent (demo mode).",
+      sent: "Message sent. I'll reply on Telegram.",
+      error: "Could not send. Message me on Telegram: @prosto_m1f",
     },
   },
 };
@@ -89,7 +111,10 @@ export const t = {
 export const projects: Project[] = [
   {
     slug: "untt",
-    status: "MVP / Demo",
+    status: {
+      ru: "Готов, не запущен",
+      en: "Ready, not deployed",
+    },
     title: {
       ru: "UnTT - Telegram бот для контроля тайминга роликов",
       en: "UnTT - Telegram bot for short video timing control",
@@ -99,14 +124,17 @@ export const projects: Project[] = [
       en: "Helps track time limits for short-form videos.",
     },
     details: {
-      ru: "Бот автоматизирует контроль длительности, чтобы не выходить за формат платформы.",
-      en: "The bot automates duration checks so clips stay inside platform limits.",
+      ru: "Функционально бот готов, но проект в прод не выводил — не запускал.",
+      en: "The bot is feature-complete for the intended scope; I have not deployed it to production yet.",
     },
     stack: ["Python", "Telegram Bot API", "Scheduler"],
   },
   {
     slug: "fa",
-    status: "MVP / Demo",
+    status: {
+      ru: "Демо / MVP",
+      en: "Demo / MVP",
+    },
     title: {
       ru: "FA - фриланс-ассистент",
       en: "FA - freelance assistant",
@@ -116,14 +144,17 @@ export const projects: Project[] = [
       en: "Assistant for organizing freelance tasks and workflows.",
     },
     details: {
-      ru: "Проект в стадии прототипа: частично реализованы функции и структура системы.",
-      en: "Prototype stage project: core structure and several features are implemented.",
+      ru: "Демо: задумка и часть функций есть, до рабочего продукта не доводил.",
+      en: "Demo: concept and partial features; not brought to a full working product.",
     },
     stack: ["Python", "SQLite", "Automation"],
   },
   {
     slug: "price-tracker",
-    status: "MVP / Demo",
+    status: {
+      ru: "Готов: портфолио по ТЗ",
+      en: "Complete: portfolio brief",
+    },
     title: {
       ru: "Price Tracker Portfolio",
       en: "Price Tracker Portfolio",
@@ -133,31 +164,37 @@ export const projects: Project[] = [
       en: "Tracks product price changes.",
     },
     details: {
-      ru: "Инструмент для мониторинга цен и фиксации динамики по выбранным позициям.",
-      en: "Tool for monitoring prices and logging history for selected items.",
+      ru: "Довёл до конца как учебный кейс: сам придумал ТЗ в формате «как заказ». Реальный заказчик — не подключался.",
+      en: "Finished end-to-end as a portfolio piece: I wrote the brief myself in a client-style format. No real client was involved.",
     },
     stack: ["Python", "Parsing", "Notifications"],
   },
   {
     slug: "restaurant-terrassa",
-    status: "Concept",
+    status: {
+      ru: "Готов: портфолио по ТЗ",
+      en: "Complete: portfolio brief",
+    },
     title: {
       ru: "Restaurant Terrassa - сайт ресторана",
       en: "Restaurant Terrassa - restaurant website",
     },
     short: {
-      ru: "Демо-кейс сайта для ресторанного бизнеса.",
-      en: "Demo website case for a restaurant business.",
+      ru: "Сайт ресторана: визуал, структура, адаптив.",
+      en: "Restaurant site: layout, visuals, responsive.",
     },
     details: {
-      ru: "Показывает подачу меню, атмосферу бренда и простую коммуникацию с клиентом.",
-      en: "Demonstrates menu presentation, brand atmosphere and simple client communication.",
+      ru: "Довёл до конца как портфолио-кейс по вымышленному заказу: сам сформулировал задачу «как у клиента».",
+      en: "Completed as a portfolio case for a fictional client brief I defined myself.",
     },
     stack: ["Frontend", "UI/UX", "Responsive"],
   },
   {
     slug: "vg2",
-    status: "MVP / Demo",
+    status: {
+      ru: "Демо / MVP",
+      en: "Demo / MVP",
+    },
     title: {
       ru: "VG2 - генерация коротких видео с нуля",
       en: "VG2 - short video generation from scratch",
@@ -167,8 +204,8 @@ export const projects: Project[] = [
       en: "Script that automates short video creation.",
     },
     details: {
-      ru: "Конвейер генерации роликов для быстрого производства контента.",
-      en: "Generation pipeline for fast content production.",
+      ru: "Демо-конвейер генерации роликов; не финальный продукт.",
+      en: "Demo pipeline for short videos; not a final product.",
     },
     stack: ["Python", "Media processing", "Automation"],
   },
