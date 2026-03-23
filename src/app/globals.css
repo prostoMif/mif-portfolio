@@ -7,6 +7,7 @@
   --accent: #a8552a;
   --accent-soft: #ead6c8;
   --muted: #6c5a4f;
+  --ring: #f3e5d7;
 }
 
 @theme inline {
@@ -34,4 +35,39 @@ a {
   max-width: 72rem;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.bg-warm-noise {
+  background:
+    radial-gradient(circle at 8% 5%, #f7d2ba 0%, transparent 35%),
+    radial-gradient(circle at 90% 8%, #f5c8a2 0%, transparent 30%),
+    radial-gradient(circle at 50% 75%, #f3e0d0 0%, transparent 35%),
+    var(--background);
+}
+
+.glass {
+  background: color-mix(in oklab, var(--card) 92%, white 8%);
+  border: 1px solid color-mix(in oklab, var(--ring) 80%, transparent 20%);
+  box-shadow: 0 8px 30px rgba(50, 25, 8, 0.06);
+}
+
+.chip {
+  border: 1px solid color-mix(in oklab, var(--accent) 14%, transparent 86%);
+  background: color-mix(in oklab, var(--accent-soft) 55%, white 45%);
+  color: var(--foreground);
+}
+
+.fade-up {
+  animation: fade-up 0.55s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

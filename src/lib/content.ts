@@ -4,6 +4,10 @@ export type Project = {
   slug: string;
   /** Короткая метка статуса для карточек (RU/EN). */
   status: Record<Locale, string>;
+  /** Небольшой визуальный маркер для карточки проекта. */
+  icon: string;
+  /** Индивидуальный акцент карточки. */
+  accent: string;
   title: Record<Locale, string>;
   short: Record<Locale, string>;
   details: Record<Locale, string>;
@@ -35,9 +39,9 @@ export const t = {
       about: "Обо мне",
       contact: "Контакты",
     },
-    heroTitle: "Создаю сайты, ботов и автоматизацию под задачи бизнеса",
+    heroTitle: "Создаю быстрые и аккуратные digital-решения для бизнеса",
     heroText:
-      "Я Михаил (mif), fullstack разработчик. Делаю понятные интерфейсы, backend-логику и интеграции. Иногда использую ИИ для ускорения типовых задач.",
+      "Я Михаил (mif), fullstack разработчик. Помогаю запустить продукт от идеи до рабочего результата: интерфейс, backend, интеграции и автоматизация.",
     heroPrimary: "Смотреть проекты",
     heroSecondary: "Связаться",
     projectsTitle: "Избранные проекты",
@@ -76,9 +80,9 @@ export const t = {
       about: "About",
       contact: "Contact",
     },
-    heroTitle: "I build websites, bots and automation for business tasks",
+    heroTitle: "I build fast and polished digital solutions for business",
     heroText:
-      "I am Mikhail (mif), a fullstack developer. I build clean interfaces, backend logic and integrations. I also use AI when it helps speed up routine work.",
+      "I am Mikhail (mif), a fullstack developer. I help launch products from idea to working result: interface, backend, integrations and automation.",
     heroPrimary: "View projects",
     heroSecondary: "Contact me",
     projectsTitle: "Selected projects",
@@ -111,6 +115,8 @@ export const t = {
 export const projects: Project[] = [
   {
     slug: "untt",
+    icon: "⏱️",
+    accent: "#c76f37",
     status: {
       ru: "Готов, не запущен",
       en: "Ready, not deployed",
@@ -131,6 +137,8 @@ export const projects: Project[] = [
   },
   {
     slug: "fa",
+    icon: "🧠",
+    accent: "#9a5b8d",
     status: {
       ru: "Демо / MVP",
       en: "Demo / MVP",
@@ -151,6 +159,8 @@ export const projects: Project[] = [
   },
   {
     slug: "price-tracker",
+    icon: "📈",
+    accent: "#3d8d7a",
     status: {
       ru: "Готов: портфолио по ТЗ",
       en: "Complete: portfolio brief",
@@ -171,6 +181,8 @@ export const projects: Project[] = [
   },
   {
     slug: "restaurant-terrassa",
+    icon: "🍽️",
+    accent: "#b66b3e",
     status: {
       ru: "Готов: портфолио по ТЗ",
       en: "Complete: portfolio brief",
@@ -191,6 +203,8 @@ export const projects: Project[] = [
   },
   {
     slug: "vg2",
+    icon: "🎬",
+    accent: "#4e6ca8",
     status: {
       ru: "Демо / MVP",
       en: "Demo / MVP",
