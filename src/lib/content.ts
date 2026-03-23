@@ -11,6 +11,10 @@ export type Project = {
   title: Record<Locale, string>;
   short: Record<Locale, string>;
   details: Record<Locale, string>;
+  challenge: Record<Locale, string>;
+  approach: Record<Locale, string>;
+  result: Record<Locale, string>;
+  deliverables: Record<Locale, string[]>;
   stack: string[];
 };
 
@@ -39,14 +43,14 @@ export const t = {
       about: "Обо мне",
       contact: "Контакты",
     },
-    heroTitle: "Создаю быстрые и аккуратные digital-решения для бизнеса",
+    heroTitle: "Делаю сайты и автоматизацию, которые помогают бизнесу зарабатывать",
     heroText:
-      "Я Михаил (mif), fullstack разработчик. Помогаю запустить продукт от идеи до рабочего результата: интерфейс, backend, интеграции и автоматизация.",
+      "Я Михаил (mif), fullstack разработчик. Закрываю цикл от идеи до запуска: интерфейс, backend, интеграции и автоматизация. Фокус — скорость, прозрачность и практический результат.",
     heroPrimary: "Смотреть проекты",
     heroSecondary: "Связаться",
     projectsTitle: "Избранные проекты",
     projectsText:
-      "Есть полностью доведённые портфолио-кейсы «как заказ», демо и бот, готовый к запуску (пока не деплоил).",
+      "Показываю не только код, но и логику работы: задача, подход и какой результат получает заказчик.",
     servicesTitle: "Услуги",
     servicesList: [
       "Лендинги и многостраничные сайты",
@@ -80,14 +84,14 @@ export const t = {
       about: "About",
       contact: "Contact",
     },
-    heroTitle: "I build fast and polished digital solutions for business",
+    heroTitle: "I build websites and automation that help businesses grow",
     heroText:
-      "I am Mikhail (mif), a fullstack developer. I help launch products from idea to working result: interface, backend, integrations and automation.",
+      "I am Mikhail (mif), a fullstack developer. I handle the full cycle from idea to launch: interface, backend, integrations and automation. My focus is speed, clarity and practical business value.",
     heroPrimary: "View projects",
     heroSecondary: "Contact me",
     projectsTitle: "Selected projects",
     projectsText:
-      "Portfolio-style briefs finished end-to-end, demos, and a bot ready to deploy (not launched yet).",
+      "I present more than code: problem, approach and practical result for the client.",
     servicesTitle: "Services",
     servicesList: [
       "Landing pages and multi-page websites",
@@ -133,6 +137,22 @@ export const projects: Project[] = [
       ru: "Функционально бот готов, но проект в прод не выводил — не запускал.",
       en: "The bot is feature-complete for the intended scope; I have not deployed it to production yet.",
     },
+    challenge: {
+      ru: "У автора коротких видео теряется контроль тайминга и проверка длительности делается вручную.",
+      en: "Short-form creators lose timing control and duration checks are done manually.",
+    },
+    approach: {
+      ru: "Собрал Telegram-бота с автоматическими проверками лимитов и планировщиком уведомлений.",
+      en: "Built a Telegram bot with automatic limit checks and scheduled reminders.",
+    },
+    result: {
+      ru: "Сокращается ручная рутина перед публикацией и снижается риск выхода за лимиты платформ.",
+      en: "Reduces pre-publish manual routine and lowers the risk of exceeding platform limits.",
+    },
+    deliverables: {
+      ru: ["Telegram-бот", "Логика проверок тайминга", "Планировщик уведомлений"],
+      en: ["Telegram bot", "Timing validation logic", "Notification scheduler"],
+    },
     stack: ["Python", "Telegram Bot API", "Scheduler"],
   },
   {
@@ -154,6 +174,22 @@ export const projects: Project[] = [
     details: {
       ru: "Демо: задумка и часть функций есть, до рабочего продукта не доводил.",
       en: "Demo: concept and partial features; not brought to a full working product.",
+    },
+    challenge: {
+      ru: "Нужна система, которая объединяет задачи, заметки и процессы фрилансера в одном месте.",
+      en: "A system is needed to keep freelancer tasks, notes and workflows in one place.",
+    },
+    approach: {
+      ru: "Спроектировал структуру ассистента и реализовал ключевые модули MVP для проверки гипотез.",
+      en: "Designed the assistant architecture and implemented core MVP modules to validate hypotheses.",
+    },
+    result: {
+      ru: "Получен рабочий прототип для теста сценариев и последующего масштабирования в полноценный продукт.",
+      en: "Produced a working prototype to test scenarios and scale into a full product later.",
+    },
+    deliverables: {
+      ru: ["MVP-архитектура", "База данных и базовая логика", "Сценарии использования"],
+      en: ["MVP architecture", "Database and core logic", "Usage scenarios"],
     },
     stack: ["Python", "SQLite", "Automation"],
   },
@@ -177,6 +213,22 @@ export const projects: Project[] = [
       ru: "Довёл до конца как учебный кейс: сам придумал ТЗ в формате «как заказ». Реальный заказчик — не подключался.",
       en: "Finished end-to-end as a portfolio piece: I wrote the brief myself in a client-style format. No real client was involved.",
     },
+    challenge: {
+      ru: "Нужно отслеживать цены по выбранным товарам и быстро получать сигнал о выгодном изменении.",
+      en: "Need to monitor selected products and quickly detect profitable price changes.",
+    },
+    approach: {
+      ru: "Реализовал парсинг источников, логику сравнения и уведомления о динамике цены.",
+      en: "Implemented source parsing, comparison logic and notifications about price dynamics.",
+    },
+    result: {
+      ru: "Готовый инструмент мониторинга, который помогает принимать решение о покупке по фактической динамике.",
+      en: "A complete monitoring tool that supports purchase decisions using real price history.",
+    },
+    deliverables: {
+      ru: ["Скрипт мониторинга", "История цен", "Система уведомлений"],
+      en: ["Monitoring script", "Price history", "Notification system"],
+    },
     stack: ["Python", "Parsing", "Notifications"],
   },
   {
@@ -199,6 +251,22 @@ export const projects: Project[] = [
       ru: "Довёл до конца как портфолио-кейс по вымышленному заказу: сам сформулировал задачу «как у клиента».",
       en: "Completed as a portfolio case for a fictional client brief I defined myself.",
     },
+    challenge: {
+      ru: "Ресторану нужен презентационный сайт, который быстро передает атмосферу, меню и упрощает контакт.",
+      en: "A restaurant needs a presentation website that quickly conveys atmosphere, menu and contact options.",
+    },
+    approach: {
+      ru: "Собрал структуру многостраничного сайта с акцентом на визуал, читабельность и мобильный UX.",
+      en: "Built a multi-page structure focused on visual identity, readability and mobile UX.",
+    },
+    result: {
+      ru: "Получился законченный сайт-витрина, который можно использовать как основу под реальный запуск.",
+      en: "Delivered a complete showcase website that can serve as a base for a real launch.",
+    },
+    deliverables: {
+      ru: ["UI-концепция", "Адаптивная верстка", "Страницы меню и контактов"],
+      en: ["UI concept", "Responsive layout", "Menu and contact pages"],
+    },
     stack: ["Frontend", "UI/UX", "Responsive"],
   },
   {
@@ -220,6 +288,22 @@ export const projects: Project[] = [
     details: {
       ru: "Демо-конвейер генерации роликов; не финальный продукт.",
       en: "Demo pipeline for short videos; not a final product.",
+    },
+    challenge: {
+      ru: "Нужно ускорить производство коротких роликов и убрать повторяющиеся ручные этапы.",
+      en: "Need to speed up short-video production and remove repetitive manual steps.",
+    },
+    approach: {
+      ru: "Собрал скриптовый конвейер генерации роликов с автоматизацией базовых этапов.",
+      en: "Built a script-based pipeline that automates key stages of short-video generation.",
+    },
+    result: {
+      ru: "Демо-решение показывает, как сокращается время на базовое производство контента.",
+      en: "The demo proves a reduction in baseline content production time.",
+    },
+    deliverables: {
+      ru: ["Скрипт конвейера", "Автоматизированные шаги генерации", "Демо-сценарии"],
+      en: ["Pipeline script", "Automated generation steps", "Demo scenarios"],
     },
     stack: ["Python", "Media processing", "Automation"],
   },

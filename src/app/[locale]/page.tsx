@@ -51,6 +51,12 @@ export default async function LocaleHome({
               </p>
               <h3 className="font-medium text-lg">{item.title[locale]}</h3>
               <p className="text-sm text-muted mt-2">{item.short[locale]}</p>
+              <p className="text-sm mt-2">
+                <span className="text-accent">
+                  {locale === "ru" ? "Польза: " : "Value: "}
+                </span>
+                <span className="text-muted">{item.result[locale]}</span>
+              </p>
               <Link
                 href={`/${locale}/projects/${item.slug}`}
                 className="inline-block mt-4 text-sm underline underline-offset-4"

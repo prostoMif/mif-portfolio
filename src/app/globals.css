@@ -61,6 +61,28 @@ a {
   animation: fade-up 0.55s ease both;
 }
 
+.case-preview {
+  position: relative;
+  overflow: hidden;
+  min-height: 210px;
+  border-radius: 1rem;
+  border: 1px dashed color-mix(in oklab, var(--accent) 28%, transparent 72%);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--accent-soft) 48%, white 52%) 0%,
+      color-mix(in oklab, var(--card) 85%, white 15%) 100%
+    );
+}
+
+.case-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 10%, rgba(168, 85, 42, 0.16), transparent 38%);
+  pointer-events: none;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

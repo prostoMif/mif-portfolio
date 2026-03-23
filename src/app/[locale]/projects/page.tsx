@@ -34,6 +34,12 @@ export default async function ProjectsPage({
             </p>
             <h2 className="font-medium text-lg">{item.title[locale]}</h2>
             <p className="text-sm text-muted mt-2">{item.short[locale]}</p>
+            <p className="text-sm mt-2">
+              <span className="text-accent">
+                {locale === "ru" ? "Результат: " : "Result: "}
+              </span>
+              <span className="text-muted">{item.result[locale]}</span>
+            </p>
             <div className="mt-3 flex flex-wrap gap-2">
               {item.stack.slice(0, 3).map((tech) => (
                 <span
