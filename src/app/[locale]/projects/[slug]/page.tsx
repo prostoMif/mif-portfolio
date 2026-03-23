@@ -15,9 +15,6 @@ export default async function ProjectDetails({
   return (
     <section className="container py-10 space-y-6">
       <div className="glass rounded-3xl p-8">
-        <p className="mb-2 inline-flex rounded-full chip px-2.5 py-1 text-xs">
-          {project.status[locale]}
-        </p>
         <h1 className="text-3xl font-semibold">{project.title[locale]}</h1>
         <p className="text-muted max-w-3xl mt-3">{project.details[locale]}</p>
       </div>
@@ -31,7 +28,7 @@ export default async function ProjectDetails({
             <div className="flex items-center justify-between">
               <span className="text-2xl">{project.icon}</span>
               <span className="chip rounded-full px-2 py-1 text-xs">
-                {project.status[locale]}
+                {locale === "ru" ? "Case" : "Case"}
               </span>
             </div>
             <div>

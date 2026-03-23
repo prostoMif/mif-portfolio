@@ -29,9 +29,6 @@ export default async function ProjectsPage({
             <p className="mb-2 text-lg" aria-hidden>
               {item.icon}
             </p>
-            <p className="mb-2 inline-flex rounded-full chip px-2.5 py-1 text-xs">
-              {item.status[locale]}
-            </p>
             <h2 className="font-medium text-lg">{item.title[locale]}</h2>
             <p className="text-sm text-muted mt-2">{item.short[locale]}</p>
             <p className="text-sm mt-2">
