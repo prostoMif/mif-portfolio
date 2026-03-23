@@ -35,12 +35,12 @@ export default async function ServicesPage({
       <div className="grid gap-4 md:grid-cols-3">
         <article className="glass rounded-2xl p-5">
           <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Что получает клиент" : "Client gets"}
+            {locale === "ru" ? "Что получаете вы" : "What you get"}
           </p>
           <p className="text-sm text-muted">
             {locale === "ru"
-              ? "Рабочий результат, который можно сразу использовать: сайт, бот, интеграция или сервисный модуль."
-              : "A practical result ready to use: website, bot, integration or service module."}
+              ? "Вы получаете рабочий результат, который можно сразу использовать: сайт, бот, интеграцию или сервисный модуль."
+              : "You get a practical result ready to use: website, bot, integration or service module."}
           </p>
         </article>
         <article className="glass rounded-2xl p-5">
@@ -49,8 +49,8 @@ export default async function ServicesPage({
           </p>
           <p className="text-sm text-muted">
             {locale === "ru"
-              ? "Сначала уточняем задачу и приоритеты, затем фиксируем план и двигаемся короткими итерациями."
-              : "We align on goals and priorities first, then execute in short iterations with clear checkpoints."}
+              ? "Сначала я уточняю задачу и приоритеты, затем фиксирую план и двигаюсь короткими итерациями."
+              : "I align on goals and priorities first, then execute in short iterations with clear checkpoints."}
           </p>
         </article>
         <article className="glass rounded-2xl p-5">

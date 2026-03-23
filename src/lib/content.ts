@@ -60,7 +60,7 @@ export const t = {
     ],
     aboutTitle: "Обо мне",
     aboutText:
-      "Работаю как fullstack: frontend, backend, базы, интеграции. Фокусируюсь на понятной архитектуре, скорости разработки и результате для клиента.",
+      "Работаю как fullstack: frontend, backend, базы, интеграции. Фокусируюсь на понятной архитектуре, скорости разработки и результате для вас.",
     contactTitle: "Контакты",
     contactText: "Пиши в Telegram — отвечу там.",
     contactTextWithForm:
@@ -101,7 +101,7 @@ export const t = {
     ],
     aboutTitle: "About me",
     aboutText:
-      "I work as a fullstack developer: frontend, backend, databases and integrations. I focus on clear architecture, fast delivery and practical client value.",
+      "I work as a fullstack developer: frontend, backend, databases and integrations. I focus on clear architecture, fast delivery and practical value for you.",
     contactTitle: "Contact",
     contactText: "Message me on Telegram — I'll reply there.",
     contactTextWithForm:

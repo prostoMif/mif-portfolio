@@ -51,8 +51,8 @@ export default async function ProjectDetails({
           </p>
           <p className="text-sm text-muted">
             {locale === "ru"
-              ? "Для клиента это означает предсказуемый процесс, прозрачную коммуникацию и результат, который можно показывать или запускать."
-              : "For a client it means predictable delivery, transparent communication and a result ready to showcase or launch."}
+              ? "Для вас это означает предсказуемый процесс, прозрачную коммуникацию и результат, который можно показывать или запускать."
+              : "For you it means predictable delivery, transparent communication and a result ready to showcase or launch."}
           </p>
         </article>
       </div>
