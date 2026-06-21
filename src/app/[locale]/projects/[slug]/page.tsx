@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Locale, projects } from "@/lib/content";
+import { Locale, projects, t } from "@/lib/content";
 
 export default async function ProjectDetails({
   params,
@@ -7,16 +7,44 @@ export default async function ProjectDetails({
   params: Promise<{ locale: Locale; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const copy = t[locale];
   const project = projects.find((item) => item.slug === slug);
   if (!project) {
     notFound();
   }
 
+  const btnBase =
+    "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 text-sm font-medium transition";
+
   return (
     <section className="container py-10 space-y-6">
-      <div className="glass rounded-3xl p-8">
+      <div className="glass rounded-3xl p-6 sm:p-8">
         <h1 className="text-3xl font-semibold">{project.title[locale]}</h1>
         <p className="text-muted max-w-3xl mt-3">{project.details[locale]}</p>
+        {(project.liveLink || project.githubLink) && (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noreferrer"
+                className={`${btnBase} bg-accent text-white hover:opacity-90`}
+              >
+                {copy.liveDemo}
+              </a>
+            )}
+            {project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noreferrer"
+                className={`${btnBase} border border-amber-300 hover:bg-accent-soft`}
+              >
+                {copy.sourceCode}
+              </a>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -95,7 +123,7 @@ export default async function ProjectDetails({
       </div>
 
       <div className="flex flex-wrap gap-2 pt-1">
-        {project.stack.map((tech) => (
+        {project.tags.map((tech) => (
           <span
             key={tech}
             className="text-sm rounded-full border border-amber-300 px-3 py-1"

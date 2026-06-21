@@ -11,7 +11,8 @@ export function ContactForm({ locale }: { locale: Locale }) {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     setLoading(true);
     setSent(false);
     setError(null);
@@ -34,7 +35,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
       }
 
       setSent(true);
-      event.currentTarget.reset();
+      form.reset();
     } catch {
       setError(copy.form.error);
     } finally {
@@ -45,28 +46,29 @@ export function ContactForm({ locale }: { locale: Locale }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="space-y-3 rounded-xl bg-card p-5 border border-amber-100"
+      className="space-y-3 rounded-2xl border border-amber-100 bg-card p-5"
     >
       <input
         name="name"
         required
         placeholder={copy.form.name}
-        className="w-full rounded-md border border-amber-200 bg-white px-3 py-2 outline-none"
+        className="min-h-[44px] w-full rounded-xl border border-amber-200 bg-white px-3 py-2 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
       />
       <textarea
         name="message"
         required
         placeholder={copy.form.message}
         rows={5}
-        className="w-full rounded-md border border-amber-200 bg-white px-3 py-2 outline-none"
+        className="w-full rounded-xl border border-amber-200 bg-white px-3 py-2 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
       />
       <button
+        type="submit"
         disabled={loading}
-        className="rounded-md bg-accent px-4 py-2 text-white disabled:opacity-70"
+        className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-accent px-5 font-medium text-white transition hover:opacity-90 disabled:opacity-70"
       >
-        {copy.form.submit}
+        {loading ? copy.form.sending : copy.form.submit}
       </button>
-      {sent && <p className="text-sm text-muted">{copy.form.sent}</p>}
+      {sent && <p className="text-sm text-accent">{copy.form.sent}</p>}
       {error && <p className="text-sm text-red-700">{error}</p>}
     </form>
   );
