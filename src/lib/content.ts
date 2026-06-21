@@ -282,4 +282,54 @@ export const projects: Project[] = [
     githubLink: null,
     image: "/projects/restaurant-terrassa.png",
   },
+  {
+    slug: "cafe-dashboard",
+    icon: "📊",
+    accent: "#1a5a3c",
+    status: { ru: "Завершён", en: "Complete" },
+    title: {
+      ru: "CaféOS — система управления рестораном",
+      en: "CaféOS — restaurant management system",
+    },
+    short: {
+      ru: "Полноценный dashboard для владельца кафе или ресторана: меню, заказы, сотрудники и аналитика продаж — в одном интерфейсе.",
+      en: "Full-featured dashboard for café and restaurant owners: menu, orders, staff and sales analytics — all in one interface.",
+    },
+    details: {
+      ru: "CaféOS — это внутренняя операционная система для кафе и ресторана. Закрывает весь операционный цикл: от добавления позиций в меню до отчётов по выручке за день. Заказы принимаются через приложение или QR-код на столе, статусы меняются в реальном времени, аналитика показывает топ блюд и динамику дохода.",
+      en: "CaféOS is an internal operating system for cafés and restaurants. It covers the full operational cycle: from adding menu items to daily revenue reports. Orders come in via the app or table QR code, statuses update in real time, and analytics show top dishes and revenue trends.",
+    },
+    challenge: {
+      ru: "Владельцу ресторана нужен единый инструмент: принимать заказы, отслеживать статусы, управлять меню и видеть аналитику — без разрозненных таблиц и мессенджеров.",
+      en: "A restaurant owner needs one tool: take orders, track statuses, manage the menu and see analytics — without scattered spreadsheets and messengers.",
+    },
+    approach: {
+      ru: "Next.js на фронте с серверными компонентами для быстрого рендеринга, Node.js API для бизнес-логики, MongoDB для гибкого хранения меню и заказов, Chart.js для визуализации аналитики.",
+      en: "Next.js on the frontend with server components for fast rendering, Node.js API for business logic, MongoDB for flexible menu and order storage, Chart.js for analytics visualization.",
+    },
+    result: {
+      ru: "Готовая операционная система: администратор видит все заказы и их статусы в реальном времени, управляет меню, получает отчёты по выручке и топ блюдам.",
+      en: "A complete operational system: the admin sees all orders and statuses in real time, manages the menu and gets revenue and top-dish reports.",
+    },
+    deliverables: {
+      ru: [
+        "Управление меню и категориями",
+        "Система заказов с QR-кодом",
+        "Статусы заказов в реальном времени",
+        "Админ-панель с аналитикой",
+        "Отчёты по продажам",
+      ],
+      en: [
+        "Menu and category management",
+        "Order system with QR code",
+        "Real-time order statuses",
+        "Admin panel with analytics",
+        "Sales reports",
+      ],
+    },
+    tags: ["Next.js", "Node.js", "MongoDB", "Chart.js", "TypeScript"],
+    liveLink: null,
+    githubLink: null,
+    image: "/projects/cafe-dashboard.png",
+  },
 ];
