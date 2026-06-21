@@ -19,28 +19,22 @@ export type Project = {
 };
 
 export const locales: Locale[] = ["ru", "en"];
-
 export const SITE_URL = "https://mif-portfolio.vercel.app";
-
-export const contactTelegram = {
-  username: "prosto_m1f",
-  url: "https://t.me/prosto_m1f",
-} as const;
-
+export const contactTelegram = { username: "prosto_m1f", url: "https://t.me/prosto_m1f" } as const;
 export const CONTACT_FORM_ENABLED = true;
 
 export const skills: { name: string; slug: string }[] = [
-  { name: "React",       slug: "react"      },
-  { name: "Next.js",     slug: "nextjs"     },
-  { name: "Node.js",     slug: "nodejs"     },
-  { name: "Python",      slug: "python"     },
-  { name: "FastAPI",     slug: "fastapi"    },
-  { name: "TypeScript",  slug: "typescript" },
-  { name: "C++",         slug: "cpp"        },
-  { name: "PostgreSQL",  slug: "postgresql" },
-  { name: "SQLite",      slug: "sqlite"     },
-  { name: "Tailwind CSS",slug: "tailwind"   },
-  { name: "Git",         slug: "git"        },
+  { name: "React",        slug: "react"      },
+  { name: "Next.js",      slug: "nextjs"     },
+  { name: "Node.js",      slug: "nodejs"     },
+  { name: "Python",       slug: "python"     },
+  { name: "FastAPI",      slug: "fastapi"    },
+  { name: "TypeScript",   slug: "typescript" },
+  { name: "C++",          slug: "cpp"        },
+  { name: "PostgreSQL",   slug: "postgresql" },
+  { name: "SQLite",       slug: "sqlite"     },
+  { name: "Tailwind CSS", slug: "tailwind"   },
+  { name: "Git",          slug: "git"        },
 ];
 
 export const t = {
@@ -54,61 +48,135 @@ export const t = {
       about: "Обо мне",
       contact: "Контакты",
     },
-    heroTitle: "Fullstack-разработчик. Сайты, боты и приложения — под ключ за 1–3 дня",
-    heroSubtitle: "Закрываю весь цикл: интерфейс, backend, интеграции и Telegram-боты. Без лишних согласований — сразу к результату.",
+
+    // ── Hero ──────────────────────────────────────────────────────────────
+    heroTitle: "Нужен сайт, бот или приложение? Сдам готовый продукт от 1–3 дней",
+    heroSubtitle:
+      "Берусь за задачи, которые другие растягивают на недели. Фиксирую объём, называю срок — и держу его. Вы получаете работающий продукт, а не переписку.",
     heroPrimary: "Смотреть проекты",
-    heroTelegram: "Написать в Telegram",
+    heroTelegram: "Обсудить задачу",
     heroStats: [
-      { value: "1–3 дня", label: "время запуска" },
-      { value: "3+",      label: "реальных проекта" },
-      { value: "100%",    label: "под ключ" },
+      { value: "от 1–3 дней", label: "срок сдачи" },
+      { value: "4",           label: "проекта в портфолио" },
+      { value: "Full-stack",  label: "frontend + backend + деплой" },
     ],
+
+    // ── Why me ────────────────────────────────────────────────────────────
+    whyTitle: "Почему выбирают меня",
+    whyItems: [
+      {
+        icon: "⚡",
+        title: "Быстро — без потери качества",
+        text: "Большинство фрилансеров берут 2–4 недели на задачу, которую можно сделать за 3 дня. Я не растягиваю сроки — фиксирую дедлайн и сдаю в срок.",
+      },
+      {
+        icon: "🔧",
+        title: "Один человек — весь цикл",
+        text: "Не нужно координировать дизайнера, фронтендера и бэкендера. Я закрываю всё сам: дизайн, код, база данных, деплой — один человек, одна точка контакта.",
+      },
+      {
+        icon: "💬",
+        title: "Ясная коммуникация",
+        text: "Никаких исчезновений на 3 дня и отчётов в стиле «всё идёт по плану». Фиксирую задачу письменно, отвечаю быстро, показываю промежуточный результат.",
+      },
+    ],
+
+    // ── Skills ────────────────────────────────────────────────────────────
     skillsTitle: "Стек",
-    skillsText: "Технологии, которые использую в реальных проектах.",
+    skillsText: "Технологии, на которых собираю проекты.",
+
+    // ── Projects ──────────────────────────────────────────────────────────
     projectsTitle: "Проекты",
-    projectsText: "Реальные кейсы: задача, подход, итог.",
+    projectsText:
+      "Реальные кейсы — не учебные задачи. Смотри что именно сделано, какой стек и зачем.",
     liveDemo: "Live Demo",
     sourceCode: "GitHub",
     caseStudy: "Подробнее →",
+    projectsCta: "Хочешь что-то похожее? Напиши — обсудим.",
+    projectsCtaBtn: "Обсудить проект",
+
+    // ── Services ──────────────────────────────────────────────────────────
     servicesTitle: "Услуги",
-    servicesLead: "Беру задачу и довожу до результата — прозрачно, в срок, без воды. Вы получаете работающий продукт, а не процесс ради процесса.",
+    servicesLead:
+      "Называю точный объём и срок до начала работы. Берусь только за то, что могу сдать в срок и в нужном качестве.",
     servicesList: [
-      { icon: "🌐", title: "Сайты и лендинги", desc: "Многостраничные сайты, лендинги и витрины. С понятным объёмом работ, сроками и регулярным апдейтом по процессу." },
-      { icon: "🤖", title: "Telegram-боты", desc: "Боты под конкретную задачу: уведомления, автоматизация, мини-CRM. С понятным объёмом работ, сроками и регулярным апдейтом по процессу." },
-      { icon: "⚙️", title: "API и интеграции", desc: "Подключаю сторонние сервисы, строю API и панели управления. С понятным объёмом работ, сроками и регулярным апдейтом по процессу." },
-      { icon: "🚀", title: "MVP под запуск", desc: "Быстрый прототип для проверки идеи или привлечения первых клиентов. С понятным объёмом работ, сроками и регулярным апдейтом по процессу." },
+      {
+        icon: "🌐",
+        title: "Сайт или лендинг",
+        desc: "Многостраничный сайт, лендинг, витрина. Адаптив, быстрая загрузка, SEO-основа. Срок от 1 дня для лендинга, 3–7 дней для многостраничного.",
+        price: "от переговоров",
+      },
+      {
+        icon: "🤖",
+        title: "Telegram-бот",
+        desc: "Бот под конкретную задачу: приём заявок, уведомления, мини-CRM, автоответы. Подключу к вашей базе или внешнему сервису.",
+        price: "от переговоров",
+      },
+      {
+        icon: "⚙️",
+        title: "API и интеграции",
+        desc: "Подключу сторонние сервисы (CRM, платежи, маркетплейсы), автоматизирую процессы, сделаю admin-панель для управления данными.",
+        price: "от переговоров",
+      },
+      {
+        icon: "🚀",
+        title: "MVP за 3–7 дней",
+        desc: "Минимальный рабочий продукт для проверки гипотезы или первых продаж. Только нужный функционал — без переплаты за лишнее.",
+        price: "от переговоров",
+      },
     ],
     servicesCardTitles: {
       get: "Что вы получаете",
-      format: "Формат работы",
-      stack: "Технологический стек",
+      format: "Как работаем",
+      guarantee: "Честно про сроки",
     },
     servicesCardTexts: {
-      get: "Рабочий продукт, который сразу запускается: сайт, бот, интеграция или сервисный модуль — без доработок «после сдачи».",
-      format: "Сначала фиксируем задачу и объём. Потом — короткие итерации с чёткими точками сдачи и обратной связью.",
-      stack: "Frontend и backend решения, API-интеграции, базы данных и автоматизация процессов.",
+      get: "Готовый продукт на хостинге с исходным кодом. Не макет, не «почти готово» — работающий результат, которым можно пользоваться с первого дня.",
+      format: "Сначала фиксируем задачу и объём письменно — без размытых формулировок. Потом работаю и показываю промежуточный результат. Правки — по ходу, не в конце.",
+      guarantee: "Срок называю честно: если задача на неделю — скажу неделю, не «пару дней». Лучше реальный дедлайн, чем красивое обещание и просрочка.",
     },
+    servicesCta: "Есть задача? Напишите — отвечу в течение дня.",
+    servicesCtaBtn: "Написать в Telegram",
+
+    // ── About ─────────────────────────────────────────────────────────────
     aboutTitle: "Обо мне",
-    aboutText: "Fullstack-разработчик с опытом в web, Telegram-ботах и API-интеграциях. Работаю самостоятельно — от идеи до деплоя. Фокус на скорости, чистом коде и результате, который можно сразу использовать.",
+    aboutLead:
+      "Fullstack-разработчик. Работаю один — это значит: один контакт, один ответственный, никаких испорченных телефонов между дизайнером, фронтом и бэком.",
+    aboutBody:
+      "Берусь за проекты, где важна скорость и предсказуемость. Не обещаю невозможного — но то, что обещаю, сдаю в срок. Опыт в web, Telegram-ботах, API-интеграциях и аналитических дашбордах.",
     aboutCards: [
-      { label: "Подход",        text: "Сначала уточняю задачу и критерии результата, затем предлагаю архитектуру и план." },
-      { label: "Фокус",         text: "Интерфейс и backend как единая система: скорость, стабильность, удобство поддержки." },
-      { label: "Коммуникация",  text: "Прозрачные этапы, короткие отчёты и быстрые правки по обратной связи." },
+      {
+        label: "Подход к задаче",
+        text: "Сначала уточняю что именно нужно сделать и по каким критериям оценивать результат. Потом — архитектура и план. Работа без чёткого ТЗ — источник недовольства с обеих сторон.",
+      },
+      {
+        label: "Что умею",
+        text: "Frontend (React, Next.js), backend (Node.js, Python, FastAPI), базы данных (PostgreSQL, MongoDB, SQLite), Telegram-боты, деплой на Vercel / Railway / VPS.",
+      },
+      {
+        label: "Коммуникация",
+        text: "Отвечаю быстро. Если что-то меняется по срокам или объёму — говорю сразу, не в день сдачи. Предпочитаю писать в Telegram.",
+      },
     ],
-    contactTitle: "Контакты",
-    contactText: "Пиши в Telegram — отвечу там.",
-    contactTextWithForm: "Самый быстрый способ — Telegram. Можно и через форму: сообщение придёт напрямую.",
-    telegramCardHint: "Отвечаю быстро, обычно в течение дня.",
+
+    // ── Contact ───────────────────────────────────────────────────────────
+    contactTitle: "Есть задача?",
+    contactLead:
+      "Напишите в Telegram — коротко опишите что нужно сделать. Отвечу в течение дня, уточню детали и назову реальный срок.",
+    contactText: "Напишите в Telegram.",
+    contactTextWithForm: "Напишите в Telegram или заполните форму — сообщение придёт напрямую.",
+    telegramCardHint: "Отвечаю быстро, обычно в течение нескольких часов.",
     form: {
       heading: "Или напишите через форму",
-      name: "Имя",
-      message: "Сообщение",
+      name: "Ваше имя",
+      message: "Опишите задачу — что нужно сделать, в какой срок, есть ли примеры",
       submit: "Отправить",
       sending: "Отправляю…",
-      sent: "Сообщение отправлено. Отвечу в Telegram.",
-      error: "Не удалось отправить. Напиши напрямую: @prosto_m1f",
+      sent: "Получил, отвечу в Telegram в течение дня.",
+      error: "Не удалось отправить. Напишите напрямую: @prosto_m1f",
     },
   },
+
   en: {
     brand: "mif.dev",
     role: "Fullstack Developer",
@@ -119,59 +187,123 @@ export const t = {
       about: "About",
       contact: "Contact",
     },
-    heroTitle: "Fullstack developer. Websites, bots and apps — delivered in 1–3 days",
-    heroSubtitle: "I handle the full cycle: interface, backend, integrations and Telegram bots. Straight to results, no overhead.",
+
+    heroTitle: "Need a website, bot or app? Delivered in 1–3 days",
+    heroSubtitle:
+      "I take on tasks others stretch into weeks. I fix the scope, name a deadline — and keep it. You get a working product, not a conversation.",
     heroPrimary: "View projects",
-    heroTelegram: "Message on Telegram",
+    heroTelegram: "Discuss your task",
     heroStats: [
-      { value: "1–3 days", label: "time to launch" },
-      { value: "3+",       label: "real projects" },
-      { value: "100%",     label: "end-to-end" },
+      { value: "1–3 days",   label: "delivery time" },
+      { value: "4",          label: "portfolio projects" },
+      { value: "Full-stack", label: "frontend + backend + deploy" },
     ],
+
+    whyTitle: "Why work with me",
+    whyItems: [
+      {
+        icon: "⚡",
+        title: "Fast — without cutting corners",
+        text: "Most freelancers take 2–4 weeks for work that can be done in 3 days. I don't stretch timelines — I set a deadline and ship on time.",
+      },
+      {
+        icon: "🔧",
+        title: "One person — full cycle",
+        text: "No need to coordinate a designer, frontend and backend dev. I cover it all: design, code, database, deploy — one person, one point of contact.",
+      },
+      {
+        icon: "💬",
+        title: "Clear communication",
+        text: "No 3-day silences or vague status reports. I commit scope in writing, reply fast and show work in progress.",
+      },
+    ],
+
     skillsTitle: "Stack",
-    skillsText: "Technologies I use in real projects.",
+    skillsText: "Technologies I use on real projects.",
     projectsTitle: "Projects",
-    projectsText: "Real cases: problem, approach, result.",
+    projectsText: "Real cases — not practice tasks. See what was built, which stack and why.",
     liveDemo: "Live Demo",
     sourceCode: "GitHub",
     caseStudy: "Details →",
+    projectsCta: "Need something similar? Write — let's talk.",
+    projectsCtaBtn: "Discuss a project",
+
     servicesTitle: "Services",
-    servicesLead: "I take a task and deliver a result — transparently, on time, without fuss. You get a working product, not an ongoing process.",
+    servicesLead:
+      "I name exact scope and deadline before starting. I only take on what I can deliver on time and at the right quality.",
     servicesList: [
-      { icon: "🌐", title: "Websites & landing pages", desc: "Multi-page sites, landing pages and showcases. With clear scope, timelines and regular progress updates." },
-      { icon: "🤖", title: "Telegram bots", desc: "Bots built for a specific task: notifications, automation, mini-CRM. With clear scope, timelines and regular progress updates." },
-      { icon: "⚙️", title: "API & integrations", desc: "Connect third-party services, build APIs and admin panels. With clear scope, timelines and regular progress updates." },
-      { icon: "🚀", title: "MVP launch", desc: "Fast prototype to validate an idea or acquire first clients. With clear scope, timelines and regular progress updates." },
+      {
+        icon: "🌐",
+        title: "Website or landing page",
+        desc: "Multi-page site, landing, showcase. Responsive, fast, SEO-ready. From 1 day for a landing page, 3–7 days for multi-page.",
+        price: "negotiable",
+      },
+      {
+        icon: "🤖",
+        title: "Telegram bot",
+        desc: "Bot for a specific task: lead capture, notifications, mini-CRM, auto-replies. Can connect to your database or external service.",
+        price: "negotiable",
+      },
+      {
+        icon: "⚙️",
+        title: "API & integrations",
+        desc: "Connect third-party services (CRM, payments, marketplaces), automate workflows, build an admin panel for data management.",
+        price: "negotiable",
+      },
+      {
+        icon: "🚀",
+        title: "MVP in 3–7 days",
+        desc: "Minimum viable product to test a hypothesis or get first sales. Only what's needed — no paying for extras.",
+        price: "negotiable",
+      },
     ],
     servicesCardTitles: {
       get: "What you get",
-      format: "Work format",
-      stack: "Tech stack",
+      format: "How we work",
+      guarantee: "Honest about timelines",
     },
     servicesCardTexts: {
-      get: "A working product ready to launch: website, bot, integration or service module — no post-delivery fixes needed.",
-      format: "First we lock in the scope and goals. Then short iterations with clear handoff points and feedback loops.",
-      stack: "Frontend and backend solutions, API integrations, databases and workflow automation.",
+      get: "A working product on hosting with source code. Not a mockup, not 'almost done' — a result you can use from day one.",
+      format: "First we lock scope in writing — no vague wording. Then I work and show progress. Revisions happen during the work, not at the end.",
+      guarantee: "I give honest timelines: if the task takes a week, I say a week. A real deadline beats a pretty promise followed by a slip.",
     },
+    servicesCta: "Have a task? Write — I'll reply within a day.",
+    servicesCtaBtn: "Message on Telegram",
+
     aboutTitle: "About me",
-    aboutText: "Fullstack developer experienced in web, Telegram bots and API integrations. I work independently — from idea to deployment. Focused on speed, clean code and results you can use immediately.",
+    aboutLead:
+      "Fullstack developer. I work solo — which means one contact, one accountable person, no broken telephone between designer, frontend and backend.",
+    aboutBody:
+      "I take on projects where speed and predictability matter. I don't overpromise — but what I commit to, I deliver on time. Experience in web, Telegram bots, API integrations and analytics dashboards.",
     aboutCards: [
-      { label: "Approach",       text: "I clarify goals and success criteria first, then suggest practical architecture and a delivery plan." },
-      { label: "Focus",          text: "Interface and backend as one system: speed, stability and easy long-term maintenance." },
-      { label: "Communication",  text: "Transparent milestones, short updates and fast iterations based on your feedback." },
+      {
+        label: "How I approach tasks",
+        text: "First I clarify exactly what needs to be done and how to measure success. Then architecture and plan. Working without a clear brief is a source of frustration for everyone.",
+      },
+      {
+        label: "What I can do",
+        text: "Frontend (React, Next.js), backend (Node.js, Python, FastAPI), databases (PostgreSQL, MongoDB, SQLite), Telegram bots, deploy to Vercel / Railway / VPS.",
+      },
+      {
+        label: "Communication",
+        text: "I reply fast. If something changes in scope or timeline — I say so immediately, not on delivery day. I prefer Telegram.",
+      },
     ],
-    contactTitle: "Contact",
-    contactText: "Message me on Telegram — I'll reply there.",
-    contactTextWithForm: "The fastest way is Telegram. You can also use the form below — the message reaches me directly.",
-    telegramCardHint: "I reply fast, usually within a day.",
+
+    contactTitle: "Have a task?",
+    contactLead:
+      "Write on Telegram — briefly describe what needs to be done. I'll reply within a day, clarify details and give you a real timeline.",
+    contactText: "Write on Telegram.",
+    contactTextWithForm: "Write on Telegram or fill the form — message reaches me directly.",
+    telegramCardHint: "I reply fast, usually within a few hours.",
     form: {
       heading: "Or send a message",
-      name: "Name",
-      message: "Message",
+      name: "Your name",
+      message: "Describe the task — what needs to be done, timeline, any examples",
       submit: "Send",
       sending: "Sending…",
-      sent: "Message sent. I'll reply on Telegram.",
-      error: "Could not send. Message me directly: @prosto_m1f",
+      sent: "Got it, I'll reply on Telegram within a day.",
+      error: "Could not send. Write directly: @prosto_m1f",
     },
   },
 };
@@ -184,28 +316,28 @@ export const projects: Project[] = [
     status: { ru: "Завершён", en: "Complete" },
     title: { ru: "PricePulse — мониторинг цен", en: "PricePulse — price monitoring" },
     short: {
-      ru: "Веб-приложение для мониторинга цен ~400 товаров из 8 категорий: каталог, фильтрация, графики динамики и таблица офферов по магазинам.",
-      en: "Web app monitoring prices of ~400 products across 8 categories: catalog, filtering, price-history charts and per-store offers table.",
+      ru: "Веб-приложение для отслеживания цен на ~400 товаров из 8 категорий. Каталог с фильтрами, графики динамики и сравнение офферов по магазинам.",
+      en: "Web app tracking prices on ~400 products across 8 categories. Filterable catalog, price-history charts and per-store offer comparison.",
     },
     details: {
-      ru: "Полноценное веб-приложение на FastAPI: каталог из ~400 товаров по 8 категориям, фильтрация, графики динамики цен на Chart.js и таблица офферов по магазинам.",
-      en: "A full FastAPI web app: a catalog of ~400 products across 8 categories, filtering, Chart.js price-history graphs and a per-store offers table.",
+      ru: "Инструмент для мониторинга цен: каталог ~400 товаров по 8 категориям, фильтрация, графики динамики цен на Chart.js и таблица офферов по магазинам.",
+      en: "Price monitoring tool: catalog of ~400 products across 8 categories, filtering, Chart.js price-history graphs and a per-store offers table.",
     },
     challenge: {
       ru: "Нужно следить за ценами по сотням товаров и быстро видеть, где и насколько цена изменилась.",
-      en: "You need to track prices across hundreds of products and quickly see where and how much a price moved.",
+      en: "Track prices across hundreds of products and instantly see where and how much a price moved.",
     },
     approach: {
-      ru: "FastAPI + SQLite для хранения истории, Jinja2 для серверного рендеринга, Chart.js для визуализации динамики.",
-      en: "FastAPI + SQLite for history storage, Jinja2 for server-side rendering, Chart.js for price dynamics visualization.",
+      ru: "FastAPI + SQLite для хранения истории цен, Jinja2 для серверного рендеринга, Chart.js для визуализации динамики.",
+      en: "FastAPI + SQLite for price history, Jinja2 for server-side rendering, Chart.js for dynamics visualization.",
     },
     result: {
-      ru: "Готовый инструмент с динамикой цен по каждому товару и лучшими офферами по магазинам.",
-      en: "A ready tool showing price dynamics per product and the best per-store offers.",
+      ru: "Готовый инструмент: динамика по каждому товару, лучшие офферы по магазинам — основа для реального сервиса мониторинга.",
+      en: "Ready tool: price dynamics per product, best per-store offers — a solid base for a real monitoring service.",
     },
     deliverables: {
-      ru: ["Каталог и фильтры", "История цен и графики", "Таблица офферов"],
-      en: ["Catalog and filters", "Price history and charts", "Offers table"],
+      ru: ["Каталог и фильтры", "История цен и графики", "Таблица офферов по магазинам"],
+      en: ["Catalog and filters", "Price history and charts", "Per-store offers table"],
     },
     tags: ["FastAPI", "Python", "SQLite", "Chart.js", "Jinja2"],
     liveLink: null,
@@ -219,28 +351,28 @@ export const projects: Project[] = [
     status: { ru: "Завершён", en: "Complete" },
     title: { ru: "UnTT — Telegram-бот", en: "UnTT — Telegram bot" },
     short: {
-      ru: "Telegram-бот для осознанного использования TikTok: отслеживает экранное время, отправляет напоминания и помогает держать лимиты под контролем.",
-      en: "Telegram bot for mindful TikTok use: tracks screen time, sends reminders and helps you stay within limits.",
+      ru: "Telegram-бот для контроля экранного времени в TikTok. Считает сессии, отправляет напоминания, показывает статистику за день.",
+      en: "Telegram bot for TikTok screen time control. Tracks sessions, sends reminders, shows daily stats.",
     },
     details: {
-      ru: "Telegram-бот, который помогает осознанно пользоваться TikTok: считает проведённое время, шлёт напоминания и помогает держать экранное время под контролем.",
-      en: "A Telegram bot for mindful TikTok use: counts time spent, sends reminders and helps keep screen time under control.",
+      ru: "Бот помогает держать TikTok под контролем: считает время, шлёт напоминания по расписанию, хранит статистику.",
+      en: "Bot helps keep TikTok usage under control: counts time, sends scheduled reminders, stores stats.",
     },
     challenge: {
-      ru: "Короткие видео незаметно съедают время — нужен простой способ видеть лимиты и вовремя останавливаться.",
-      en: "Short videos quietly eat up time — you need a simple way to see limits and stop in time.",
+      ru: "Короткие видео незаметно съедают часы — нужен простой способ видеть сколько потратил и вовремя остановиться.",
+      en: "Short videos quietly eat hours — you need a simple way to see how much time was spent and stop in time.",
     },
     approach: {
-      ru: "Python-бот с учётом времени, напоминаниями по расписанию и статистикой в SQLite.",
-      en: "Python bot with time tracking, scheduled reminders and stats stored in SQLite.",
+      ru: "Python + Telegram Bot API, хранение данных в SQLite, напоминания через scheduler.",
+      en: "Python + Telegram Bot API, SQLite for data storage, reminders via scheduler.",
     },
     result: {
-      ru: "Пользователь видит статистику, получает напоминания и держит экранное время под контролем.",
-      en: "The user sees stats, gets reminders and keeps screen time under control.",
+      ru: "Пользователь видит реальную статистику экранного времени и получает напоминания — без сторонних приложений.",
+      en: "User sees real screen time stats and gets reminders — no third-party apps needed.",
     },
     deliverables: {
-      ru: ["Telegram-бот", "Учёт времени и лимиты", "Напоминания"],
-      en: ["Telegram bot", "Time tracking and limits", "Scheduled reminders"],
+      ru: ["Telegram-бот", "Учёт времени и лимиты", "Ежедневная статистика"],
+      en: ["Telegram bot", "Time tracking and limits", "Daily stats"],
     },
     tags: ["Python", "Telegram API", "SQLite"],
     liveLink: null,
@@ -254,28 +386,28 @@ export const projects: Project[] = [
     status: { ru: "Завершён", en: "Complete" },
     title: { ru: "Terrassa — сайт ресторана", en: "Terrassa — restaurant website" },
     short: {
-      ru: "Многостраничный сайт ресторана: атмосфера, меню, адаптив. Передаёт характер заведения и упрощает контакт с гостем.",
-      en: "Multi-page restaurant site: atmosphere, menu, responsive. Conveys the venue's character and simplifies guest contact.",
+      ru: "Многостраничный сайт ресторана: меню, атмосфера, контакты. Акцент на визуале и мобильном UX — гость за 10 секунд понимает куда пришёл.",
+      en: "Multi-page restaurant site: menu, atmosphere, contacts. Visual-first and mobile-friendly — guest understands the vibe in 10 seconds.",
     },
     details: {
-      ru: "Многостраничный сайт ресторана с акцентом на визуал, читабельность и мобильный UX. Передаёт атмосферу заведения и упрощает путь к брони и контактам.",
-      en: "A multi-page restaurant website focused on visuals, readability and mobile UX. Conveys the venue's atmosphere and simplifies booking and contact.",
+      ru: "Сайт-витрина ресторана с акцентом на визуал, читабельность и мобильный UX.",
+      en: "Restaurant showcase site focused on visuals, readability and mobile UX.",
     },
     challenge: {
-      ru: "Ресторану нужен сайт-витрина, который быстро передаёт атмосферу и меню, и упрощает контакт.",
-      en: "A restaurant needs a showcase website that quickly conveys atmosphere and menu, and simplifies contact.",
+      ru: "Ресторану нужен сайт, который за несколько секунд передаёт атмосферу и отвечает на три вопроса гостя: что, где, как попасть.",
+      en: "A restaurant needs a site that conveys atmosphere in seconds and answers three guest questions: what, where, how to get in.",
     },
     approach: {
-      ru: "Многостраничная структура с акцентом на визуальную идентичность, читабельность и мобильный UX.",
-      en: "Multi-page structure focused on visual identity, readability and mobile UX.",
+      ru: "Многостраничная структура, акцент на визуальную идентичность, адаптив под мобиль.",
+      en: "Multi-page structure, visual identity focus, mobile-responsive.",
     },
     result: {
-      ru: "Готовый сайт-витрина, который можно использовать как основу под реальный запуск.",
-      en: "A complete showcase website ready to use as a base for a real launch.",
+      ru: "Готовый сайт-витрина: гость сразу понимает концепцию заведения и может связаться или забронировать стол.",
+      en: "Ready showcase site: guest immediately gets the concept and can contact or book a table.",
     },
     deliverables: {
-      ru: ["UI-концепция", "Адаптивная вёрстка", "Страницы меню и контактов"],
-      en: ["UI concept", "Responsive layout", "Menu and contact pages"],
+      ru: ["Адаптивная вёрстка", "Страница меню", "Контакты и карта"],
+      en: ["Responsive layout", "Menu page", "Contacts and map"],
     },
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     liveLink: null,
@@ -292,40 +424,28 @@ export const projects: Project[] = [
       en: "CaféOS — restaurant management system",
     },
     short: {
-      ru: "Полноценный dashboard для владельца кафе или ресторана: меню, заказы, сотрудники и аналитика продаж — в одном интерфейсе.",
-      en: "Full-featured dashboard for café and restaurant owners: menu, orders, staff and sales analytics — all in one interface.",
+      ru: "Внутренний dashboard для кафе и ресторана: заказы через QR-код, управление меню, статусы в реальном времени и аналитика по выручке.",
+      en: "Internal dashboard for cafés and restaurants: QR-code orders, menu management, real-time statuses and revenue analytics.",
     },
     details: {
-      ru: "CaféOS — это внутренняя операционная система для кафе и ресторана. Закрывает весь операционный цикл: от добавления позиций в меню до отчётов по выручке за день. Заказы принимаются через приложение или QR-код на столе, статусы меняются в реальном времени, аналитика показывает топ блюд и динамику дохода.",
-      en: "CaféOS is an internal operating system for cafés and restaurants. It covers the full operational cycle: from adding menu items to daily revenue reports. Orders come in via the app or table QR code, statuses update in real time, and analytics show top dishes and revenue trends.",
+      ru: "CaféOS закрывает операционный цикл ресторана: приём заказов (приложение или QR-код), трекинг статусов, управление меню и ежедневная аналитика по выручке и популярным блюдам.",
+      en: "CaféOS covers the full restaurant operational cycle: order intake (app or QR code), status tracking, menu management and daily analytics on revenue and popular dishes.",
     },
     challenge: {
-      ru: "Владельцу ресторана нужен единый инструмент: принимать заказы, отслеживать статусы, управлять меню и видеть аналитику — без разрозненных таблиц и мессенджеров.",
-      en: "A restaurant owner needs one tool: take orders, track statuses, manage the menu and see analytics — without scattered spreadsheets and messengers.",
+      ru: "Владельцу ресторана нужен один инструмент вместо блокнота, мессенджера и таблиц: принять заказ, отследить статус, увидеть что продаётся.",
+      en: "A restaurant owner needs one tool instead of a notepad, messenger and spreadsheets: take an order, track its status, see what's selling.",
     },
     approach: {
-      ru: "Next.js на фронте с серверными компонентами для быстрого рендеринга, Node.js API для бизнес-логики, MongoDB для гибкого хранения меню и заказов, Chart.js для визуализации аналитики.",
-      en: "Next.js on the frontend with server components for fast rendering, Node.js API for business logic, MongoDB for flexible menu and order storage, Chart.js for analytics visualization.",
+      ru: "Next.js + Node.js для быстрого UI и API, MongoDB для гибкого хранения меню и заказов, Chart.js для визуализации аналитики.",
+      en: "Next.js + Node.js for fast UI and API, MongoDB for flexible menu and order storage, Chart.js for analytics visualization.",
     },
     result: {
-      ru: "Готовая операционная система: администратор видит все заказы и их статусы в реальном времени, управляет меню, получает отчёты по выручке и топ блюдам.",
-      en: "A complete operational system: the admin sees all orders and statuses in real time, manages the menu and gets revenue and top-dish reports.",
+      ru: "Администратор видит все активные заказы и статусы в реальном времени, управляет меню без кода, получает отчёт по выручке и топ-блюдам за любой день.",
+      en: "Admin sees all active orders and statuses in real time, manages the menu without code and gets revenue and top-dish reports for any day.",
     },
     deliverables: {
-      ru: [
-        "Управление меню и категориями",
-        "Система заказов с QR-кодом",
-        "Статусы заказов в реальном времени",
-        "Админ-панель с аналитикой",
-        "Отчёты по продажам",
-      ],
-      en: [
-        "Menu and category management",
-        "Order system with QR code",
-        "Real-time order statuses",
-        "Admin panel with analytics",
-        "Sales reports",
-      ],
+      ru: ["Приём заказов через QR-код", "Статусы в реальном времени", "Управление меню", "Аналитика и отчёты по продажам"],
+      en: ["QR-code order intake", "Real-time order statuses", "Menu management", "Sales analytics and reports"],
     },
     tags: ["Next.js", "Node.js", "MongoDB", "Chart.js", "TypeScript"],
     liveLink: null,
