@@ -11,67 +11,93 @@ function TelegramIcon() {
   );
 }
 
-export default async function LocaleHome({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function LocaleHome({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const copy = t[locale];
-  const featured = projects.slice(0, 3);
 
   return (
-    <section className="container space-y-16 py-10 md:py-14">
-      <div className="glass fade-up rounded-3xl p-6 sm:p-8 md:p-12">
-        <p className="text-sm uppercase tracking-[0.22em] text-accent">mif</p>
-        <h1 className="mt-3 max-w-3xl text-balance text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-          {copy.heroTitle}
-        </h1>
-        <p className="mt-4 max-w-2xl text-[1.02rem] text-muted">
-          {copy.heroText}
-        </p>
-        <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:flex-wrap">
-          <a
-            href={contactTelegram.url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-accent px-5 text-white transition hover:opacity-90"
-          >
-            <TelegramIcon />
-            {copy.heroTelegram}
-          </a>
-          <Link
-            href={`/${locale}/projects`}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-amber-300 px-5 transition hover:bg-accent-soft"
-          >
-            {copy.heroPrimary}
-          </Link>
-        </div>
-      </div>
+    <div className="container space-y-20 py-10 md:py-14">
 
-      <div className="fade-up space-y-5" style={{ animationDelay: "0.06s" }}>
-        <div>
-          <h2 className="text-2xl font-semibold">{copy.skillsTitle}</h2>
-          <p className="mt-2 text-muted">{copy.skillsText}</p>
+      {/* ── Hero ── */}
+      <section className="fade-up">
+        <div className="glass rounded-3xl p-7 sm:p-10 md:p-14 relative overflow-hidden">
+          {/* декоративный круг */}
+          <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full opacity-40"
+            style={{ background: "radial-gradient(circle, rgba(176,90,47,0.18) 0%, transparent 70%)" }} />
+
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">mif.dev</p>
+          <h1 className="mt-4 max-w-3xl text-balance text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+            {copy.heroTitle}
+          </h1>
+          <p className="mt-4 max-w-2xl text-base text-muted leading-relaxed">
+            {copy.heroSubtitle}
+          </p>
+
+          {/* CTA buttons */}
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href={contactTelegram.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-2xl bg-accent px-6 text-base font-semibold text-white shadow-md transition hover:opacity-90 hover:shadow-lg"
+            >
+              <TelegramIcon />
+              {copy.heroTelegram}
+            </a>
+            <Link
+              href={`/${locale}/projects`}
+              className="inline-flex min-h-[48px] items-center justify-center rounded-2xl border-2 border-stone-200 bg-white/80 px-6 text-base font-medium transition hover:border-accent/30 hover:bg-accent-soft"
+            >
+              {copy.heroPrimary}
+            </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            {copy.heroStats.map((s) => (
+              <div key={s.label} className="stat-pill">
+                <span className="text-xl font-bold text-accent">{s.value}</span>
+                <span className="text-xs text-muted mt-0.5">{s.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-5">
+      </section>
+
+      {/* ── Skills ── */}
+      <section className="fade-up space-y-5" style={{ animationDelay: "0.06s" }}>
+        <div>
+          <h2 className="text-2xl font-bold">{copy.skillsTitle}</h2>
+          <p className="mt-1.5 text-muted">{copy.skillsText}</p>
+        </div>
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {skills.map((skill) => (
             <TechBadge key={skill.slug} name={skill.name} slug={skill.slug} />
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="fade-up space-y-5" style={{ animationDelay: "0.12s" }}>
-        <div>
-          <h2 className="text-2xl font-semibold">{copy.projectsTitle}</h2>
-          <p className="mt-2 text-muted">{copy.projectsText}</p>
+      {/* ── Projects ── */}
+      <section className="fade-up space-y-5" style={{ animationDelay: "0.12s" }}>
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold">{copy.projectsTitle}</h2>
+            <p className="mt-1.5 text-muted">{copy.projectsText}</p>
+          </div>
+          <Link
+            href={`/${locale}/projects`}
+            className="shrink-0 text-sm font-medium text-accent underline underline-offset-4 hover:opacity-70"
+          >
+            {locale === "ru" ? "Все проекты →" : "All projects →"}
+          </Link>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((item) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((item) => (
             <ProjectCard key={item.slug} project={item} locale={locale} />
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+    </div>
   );
 }

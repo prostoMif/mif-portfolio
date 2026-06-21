@@ -1,60 +1,77 @@
-# mif — портфолио
+# mif.dev — Portfolio
 
-Next.js + Tailwind, двуязычность `ru` / `en`.
+Personal portfolio of a fullstack developer built with **Next.js 16 + TypeScript + Tailwind CSS**.
 
-**Свой домен (DNS):** см. [DNS.md](./DNS.md) — записи для `mif-portfolio.com` и Railway.
+## Stack
 
-## Запуск
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **Language:** TypeScript (strict)
+- **Styling:** Tailwind CSS
+- **Fonts:** Geist (local, no Google Fonts requests)
+- **i18n:** Russian / English via `src/lib/content.ts`
+- **Contact form:** sends messages to Telegram bot via `/api/contact`
+- **Deploy:** Vercel
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── [locale]/          # ru / en routes
+│   │   ├── page.tsx       # Home — Hero, Skills, Projects
+│   │   ├── projects/      # Projects list + case detail pages
+│   │   ├── services/      # Services page
+│   │   ├── about/         # About page
+│   │   └── contact/       # Contact page with Telegram CTA + form
+│   ├── api/
+│   │   └── contact/       # POST → Telegram bot
+│   └── layout.tsx         # Root layout, OG meta, fonts
+├── components/
+│   ├── project-card.tsx   # Project card (tags, live/github links)
+│   ├── tech-badge.tsx     # Skill badge with brand icon
+│   ├── contact-form.tsx   # Contact form (client component)
+│   └── site-shell.tsx     # Nav + footer shell
+└── lib/
+    └── content.ts         # All text content, projects data, config
+```
+
+## Running locally
 
 ```bash
 npm install
 npm run dev
+# → http://localhost:3000
 ```
 
-Открой [http://localhost:3000](http://localhost:3000) — редирект на `/ru`.
+## Environment variables
 
-## Форма → Telegram (опционально)
-
-На сайте форма **скрыта** по умолчанию. Чтобы включить: в `src/lib/content.ts` поставь `CONTACT_FORM_ENABLED = true`.
-
-1. Создай бота в Telegram: **@BotFather** → `/newbot` → скопируй **токен**.
-2. Узнай **свой chat_id**:
-   - напиши боту [@userinfobot](https://t.me/userinfobot) и скопируй `Id`,  
-   - или напиши своему новому боту `/start`, затем открой в браузере (подставь токен):
-     `https://api.telegram.org/bot<ТОКЕН>/getUpdates`  
-     и найди `"chat":{"id": ...`.
-3. В корне проекта создай файл **`.env.local`** (не коммить):
+Create `.env.local` (see `.env.example`):
 
 ```env
-TELEGRAM_BOT_TOKEN=твой_токен_от_BotFather
-TELEGRAM_CHAT_ID=твой_chat_id
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
 ```
 
-4. Перезапусти `npm run dev` и проверь форму на странице **Контакты**.
+Without these the contact form returns an error — everything else works fine.
 
-На **Vercel**: Project → Settings → Environment Variables — те же имена переменных.
+## Deploying to Vercel
 
-## Деплой
+1. Push to GitHub
+2. Import the repo at [vercel.com/new](https://vercel.com/new)
+3. Add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in Project Settings → Environment Variables
+4. Deploy — done
 
-Подойдёт [Vercel](https://vercel.com): импорт репозитория, добавь `TELEGRAM_BOT_TOKEN` и `TELEGRAM_CHAT_ID` в настройках проекта.
+## Customising content
 
-### Railway
+All site text, projects and config live in one file: **`src/lib/content.ts`**
 
-Проект собирается в режиме **`output: "standalone"`**: после `npm run build` старт — **`npm run start`** (скрипт `scripts/start-server.cjs` выставляет **`HOSTNAME=0.0.0.0`** до `require` сервера, иначе в контейнере часто **502** / *Application failed to respond*). Порт — из **`PORT`** (Railway подставляет сам). Проверка: **GET `/api/health`** → `{"ok":true}`.
+- `SITE_URL` — your production domain (used for OG tags)
+- `contactTelegram` — Telegram username and link
+- `CONTACT_FORM_ENABLED` — toggle the contact form
+- `skills` — tech badge list
+- `projects` — project cards (title, description, tags, liveLink, githubLink)
+- `t` — all UI strings in Russian and English
 
-#### `Application failed to respond`
+## License
 
-Обычно: деплой «зелёный», но процесс падает или не отвечает на health check.
-
-1. **Deployments** → последний деплой → **View logs** — ищи `Error`, `Cannot find module`, `EADDRINUSE`, stack trace.
-2. **Settings** → **Deploy** → **Start Command** — **`npm run start`**. В **Variables** при желании можно добавить **`HOSTNAME=0.0.0.0`** (дублирует то, что уже в `start-server.cjs`).
-3. **Root Directory** в Railway — корень репозитория, где лежит `package.json` (если репо не монорепо — оставь пустым).
-4. Переменная **`NODE_ENV=production`** на Railway обычно выставляется сама; `PORT` не трогай.
-5. После пуша изменений сделай **Redeploy**.
-
-#### `ERR_CONNECTION_TIMED_OUT`
-
-1. **Settings** → **Networking** → сгенерируй **Public URL** (`*.up.railway.app`).
-2. Логи деплоя — нет ли падения при старте.
-3. Свой домен: **CNAME** по инструкции Railway, подождать DNS.
-4. С одной сети не открывается — проверь с мобильного интернета или VPN (маршрут/блокировки).
+MIT

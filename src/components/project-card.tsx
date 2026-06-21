@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Locale, Project, t } from "@/lib/content";
 
 function GithubIcon() {
@@ -11,106 +12,87 @@ function GithubIcon() {
 
 function ExternalIcon() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M7 17 17 7M9 7h8v8" />
     </svg>
   );
 }
 
-export function ProjectCard({
-  project,
-  locale,
-}: {
-  project: Project;
-  locale: Locale;
-}) {
+export function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
   const copy = t[locale];
-  const btnBase =
-    "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 text-sm font-medium transition";
 
   return (
-    <article
-      className="glass flex h-full flex-col rounded-2xl p-6 transition hover:-translate-y-0.5"
-      style={{ borderColor: `${project.accent}55` }}
-    >
-      <div className="flex items-start justify-between gap-3">
-        <span className="text-2xl" aria-hidden>
-          {project.icon}
-        </span>
+    <article className="glass flex flex-col rounded-2xl overflow-hidden transition hover:-translate-y-1 hover:shadow-lg h-full">
+      {/* Цветная шапка карточки */}
+      <div
+        className="flex items-center justify-between px-5 py-4"
+        style={{ background: `linear-gradient(135deg, ${project.accent}22 0%, ${project.accent}0a 100%)`, borderBottom: `1px solid ${project.accent}22` }}
+      >
+        <span className="text-2xl" aria-hidden>{project.icon}</span>
         <span
-          className="rounded-full px-2.5 py-1 text-xs font-medium"
-          style={{
-            backgroundColor: `${project.accent}1f`,
-            color: project.accent,
-          }}
+          className="rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide"
+          style={{ backgroundColor: `${project.accent}18`, color: project.accent }}
         >
           {project.status[locale]}
         </span>
       </div>
 
-      <h3 className="mt-4 text-lg font-semibold leading-snug">
-        {project.title[locale]}
-      </h3>
-      <p className="mt-2 text-sm text-muted">{project.short[locale]}</p>
+      {/* Превью изображение */}
+      {project.image && (
+        <div className="relative h-40 w-full overflow-hidden">
+          <Image src={project.image} alt={project.title[locale]} fill className="object-cover" sizes="(max-width:768px) 100vw, 400px" />
+        </div>
+      )}
 
-      <ul className="mt-4 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <li
-            key={`${project.slug}-${tag}`}
-            className="rounded-full border border-amber-200 bg-white/60 px-2.5 py-0.5 font-mono text-xs text-muted"
-          >
-            {tag}
-          </li>
-        ))}
-      </ul>
+      {/* Основной контент */}
+      <div className="flex flex-col flex-1 p-5 gap-4">
+        <div>
+          <h3 className="font-semibold text-base leading-snug">{project.title[locale]}</h3>
+          <p className="mt-2 text-sm text-muted leading-relaxed">{project.short[locale]}</p>
+        </div>
 
-      <div className="mt-auto flex flex-wrap gap-2 pt-6">
-        {project.liveLink ? (
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noreferrer"
-            className={`${btnBase} bg-accent text-white hover:opacity-90`}
-          >
-            <ExternalIcon />
-            {copy.liveDemo}
-          </a>
-        ) : (
-          <span
-            className={`${btnBase} cursor-default border border-amber-200 bg-white/40 text-muted/70`}
-            aria-disabled
-          >
-            {copy.liveSoon}
-          </span>
-        )}
+        {/* Теги */}
+        <ul className="flex flex-wrap gap-1.5">
+          {project.tags.map((tag) => (
+            <li key={`${project.slug}-${tag}`} className="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 font-mono text-xs text-muted">
+              {tag}
+            </li>
+          ))}
+        </ul>
 
-        {project.githubLink ? (
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noreferrer"
-            className={`${btnBase} border border-amber-300 hover:bg-accent-soft`}
-          >
-            <GithubIcon />
-            {copy.sourceCode}
-          </a>
-        ) : null}
+        {/* Кнопки — всегда внизу */}
+        <div className="mt-auto pt-2 flex flex-wrap gap-2">
+          {project.liveLink ? (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-xl bg-accent px-4 text-sm font-medium text-white transition hover:opacity-90"
+            >
+              <ExternalIcon />
+              {copy.liveDemo}
+            </a>
+          ) : null}
 
-        <Link
-          href={`/${locale}/projects/${project.slug}`}
-          className={`${btnBase} text-accent underline underline-offset-4 hover:opacity-80`}
-        >
-          {copy.caseStudy}
-        </Link>
+          {project.githubLink ? (
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-xl border border-stone-200 bg-white px-4 text-sm font-medium transition hover:bg-stone-50"
+            >
+              <GithubIcon />
+              {copy.sourceCode}
+            </a>
+          ) : null}
+
+          <Link
+            href={`/${locale}/projects/${project.slug}`}
+            className="inline-flex min-h-[40px] items-center rounded-xl px-3 text-sm font-medium text-accent transition hover:bg-accent-soft"
+          >
+            {copy.caseStudy}
+          </Link>
+        </div>
       </div>
     </article>
   );

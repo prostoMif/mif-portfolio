@@ -1,52 +1,31 @@
 import { Locale, t } from "@/lib/content";
 
-export default async function AboutPage({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function AboutPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const copy = t[locale];
 
   return (
-    <section className="container py-10 space-y-6">
-      <div className="glass rounded-3xl p-8">
-        <h1 className="text-3xl font-semibold">{copy.aboutTitle}</h1>
-        <p className="text-muted max-w-3xl mt-3">{copy.aboutText}</p>
+    <section className="container space-y-8 py-10 md:py-14">
+
+      <div className="glass fade-up rounded-3xl p-7 sm:p-10">
+        <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+          {locale === "ru" ? "Разработчик" : "Developer"}
+        </p>
+        <h1 className="text-3xl font-bold">{copy.aboutTitle}</h1>
+        <p className="mt-3 max-w-2xl text-muted leading-relaxed">{copy.aboutText}</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <article className="glass rounded-2xl p-5">
-          <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Подход" : "Approach"}
-          </p>
-          <p className="text-sm text-muted">
-            {locale === "ru"
-              ? "Сначала проясняю задачу и критерии результата, затем предлагаю рабочую архитектуру и план."
-              : "I clarify the goal and success criteria first, then suggest practical architecture and delivery plan."}
-          </p>
-        </article>
-        <article className="glass rounded-2xl p-5">
-          <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Фокус" : "Focus"}
-          </p>
-          <p className="text-sm text-muted">
-            {locale === "ru"
-              ? "Делаю интерфейс и backend как единую систему: скорость, стабильность и удобство поддержки."
-              : "I build interface and backend as one system: speed, stability and maintainability."}
-          </p>
-        </article>
-        <article className="glass rounded-2xl p-5">
-          <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Коммуникация" : "Communication"}
-          </p>
-          <p className="text-sm text-muted">
-            {locale === "ru"
-              ? "Работаю прозрачно: понятные этапы, короткие отчеты и быстрые правки по обратной связи."
-              : "I keep delivery transparent: clear milestones, short updates and fast iterations based on feedback."}
-          </p>
-        </article>
+      <div className="fade-up grid gap-4 md:grid-cols-3" style={{ animationDelay: "0.07s" }}>
+        {copy.aboutCards.map((card) => (
+          <article key={card.label} className="glass rounded-2xl p-5 transition hover:-translate-y-0.5 hover:shadow-md">
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+              {card.label}
+            </p>
+            <p className="text-sm text-muted leading-relaxed">{card.text}</p>
+          </article>
+        ))}
       </div>
+
     </section>
   );
 }

@@ -1,69 +1,47 @@
 import { Locale, t } from "@/lib/content";
 
-export default async function ServicesPage({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) {
+export default async function ServicesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const copy = t[locale];
 
   return (
-    <section className="container py-10 space-y-6">
-      <div className="glass rounded-3xl p-8">
-        <h1 className="text-3xl font-semibold">{copy.servicesTitle}</h1>
-        <p className="text-muted mt-3 max-w-3xl">
-          {locale === "ru"
-            ? "Помогаю закрывать digital-задачи под ключ: от структуры до рабочего результата. Подходит для фриланс-заказов, запусков MVP и обновления существующих продуктов."
-            : "I help deliver digital tasks end-to-end: from structure to working result. Fits freelance requests, MVP launches and product upgrades."}
+    <section className="container space-y-8 py-10 md:py-14">
+
+      <div className="glass fade-up rounded-3xl p-7 sm:p-10">
+        <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+          {locale === "ru" ? "Что я делаю" : "What I do"}
         </p>
+        <h1 className="text-3xl font-bold">{copy.servicesTitle}</h1>
+        <p className="mt-3 max-w-2xl text-muted leading-relaxed">{copy.servicesLead}</p>
       </div>
 
-      <ul className="grid gap-3 md:grid-cols-2">
+      {/* Service cards */}
+      <ul className="fade-up grid gap-4 sm:grid-cols-2" style={{ animationDelay: "0.06s" }}>
         {copy.servicesList.map((item) => (
-          <li key={item} className="glass rounded-xl p-4">
-            <p className="font-medium">{item}</p>
-            <p className="text-sm text-muted mt-2">
-              {locale === "ru"
-                ? "С понятным объемом работ, сроками и регулярным апдейтом по процессу."
-                : "With clear scope, timeline and regular progress updates."}
-            </p>
+          <li key={item.title} className="glass rounded-2xl p-6 flex gap-4 transition hover:-translate-y-0.5 hover:shadow-md">
+            <span className="text-3xl leading-none mt-0.5" aria-hidden>{item.icon}</span>
+            <div>
+              <p className="font-semibold text-base">{item.title}</p>
+              <p className="mt-2 text-sm text-muted leading-relaxed">{item.desc}</p>
+            </div>
           </li>
         ))}
       </ul>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <article className="glass rounded-2xl p-5">
-          <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Что получаете вы" : "What you get"}
-          </p>
-          <p className="text-sm text-muted">
-            {locale === "ru"
-              ? "Вы получаете рабочий результат, который можно сразу использовать: сайт, бот, интеграцию или сервисный модуль."
-              : "You get a practical result ready to use: website, bot, integration or service module."}
-          </p>
-        </article>
-        <article className="glass rounded-2xl p-5">
-          <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Формат работы" : "Work format"}
-          </p>
-          <p className="text-sm text-muted">
-            {locale === "ru"
-              ? "Сначала я уточняю задачу и приоритеты, затем фиксирую план и двигаюсь короткими итерациями."
-              : "I align on goals and priorities first, then execute in short iterations with clear checkpoints."}
-          </p>
-        </article>
-        <article className="glass rounded-2xl p-5">
-          <p className="text-xs text-accent mb-2">
-            {locale === "ru" ? "Технологический стек" : "Tech stack"}
-          </p>
-          <p className="text-sm text-muted">
-            {locale === "ru"
-              ? "Frontend и backend решения, API-интеграции, базы данных и автоматизация процессов."
-              : "Frontend and backend solutions, API integrations, databases and workflow automation."}
-          </p>
-        </article>
+      {/* Bottom info cards */}
+      <div className="fade-up grid gap-4 md:grid-cols-3" style={{ animationDelay: "0.12s" }}>
+        {(["get", "format", "stack"] as const).map((key) => (
+          <article key={key} className="glass rounded-2xl p-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+              {copy.servicesCardTitles[key]}
+            </p>
+            <p className="text-sm text-muted leading-relaxed">
+              {copy.servicesCardTexts[key]}
+            </p>
+          </article>
+        ))}
       </div>
+
     </section>
   );
 }
