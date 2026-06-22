@@ -15,20 +15,26 @@ export function ScrollReveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // сразу показываем если уже в viewport
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); obs.disconnect(); } },
-      { threshold: 0.12 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (delay) {
+            setTimeout(() => el.classList.add("in"), delay * 1000);
+          } else {
+            el.classList.add("in");
+          }
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [delay]);
 
   return (
-    <div
-      ref={ref}
-      className={`reveal ${className}`}
-      style={delay ? { transitionDelay: `${delay}s` } : undefined}
-    >
+    <div ref={ref} className={`reveal ${className}`}>
       {children}
     </div>
   );

@@ -62,7 +62,7 @@ const glyph: Record<string, ReactNode> = {
 
 export function TechBadge({ name, slug }: { name: string; slug: string }) {
   return (
-    <span className="flex items-center gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] px-3 py-2.5 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.06] hover:-translate-y-px cursor-default">
+    <span className="skill-badge">
       <span
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
         style={{ backgroundColor: tileColor[slug] ?? "#1a1a2a", border: "1px solid rgba(255,255,255,0.08)" }}
