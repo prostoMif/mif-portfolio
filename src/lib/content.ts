@@ -50,15 +50,15 @@ export const t = {
     },
 
     // ── Hero ──────────────────────────────────────────────────────────────
-    heroTitle: "Нужен сайт, бот или приложение? Сдам готовый продукт от 1–3 дней",
+    heroTitle: "Сайт для вашего бизнеса с онлайн-записью — за 2–3 дня",
     heroSubtitle:
-      "Берусь за задачи, которые другие растягивают на недели. Фиксирую объём, называю срок — и держу его. Вы получаете работающий продукт, а не переписку.",
+      "Делаю сайты для детейлинга, автосервисов и локального бизнеса: запись в WhatsApp и Telegram, фото работ, отзывы из 2ГИС и редактор, где вы сами меняете цены и фото. Telegram-боты и веб-сервисы — тоже.",
     heroPrimary: "Смотреть проекты",
     heroTelegram: "Обсудить задачу",
     heroStats: [
-      { value: "от 1–3 дней", label: "срок сдачи" },
-      { value: "4",           label: "проекта в портфолио" },
-      { value: "Full-stack",  label: "frontend + backend + деплой" },
+      { value: "2–3 дня",    label: "до запуска сайта" },
+      { value: "Редактор",   label: "фото и цены меняете сами" },
+      { value: "Full-stack", label: "сайт + хостинг + поддержка" },
     ],
 
     // ── Why me ────────────────────────────────────────────────────────────
@@ -188,15 +188,15 @@ export const t = {
       contact: "Contact",
     },
 
-    heroTitle: "Need a website, bot or app? Delivered in 1–3 days",
+    heroTitle: "A website for your business with online booking — in 2–3 days",
     heroSubtitle:
-      "I take on tasks others stretch into weeks. I fix the scope, name a deadline — and keep it. You get a working product, not a conversation.",
+      "I build websites for detailing studios, car services and local businesses: booking via WhatsApp and Telegram, work photos, reviews and an editor where you change prices and photos yourself. Telegram bots and web services too.",
     heroPrimary: "View projects",
     heroTelegram: "Discuss your task",
     heroStats: [
-      { value: "1–3 days",   label: "delivery time" },
-      { value: "4",          label: "portfolio projects" },
-      { value: "Full-stack", label: "frontend + backend + deploy" },
+      { value: "2–3 days",   label: "to launch" },
+      { value: "Editor",     label: "update photos & prices yourself" },
+      { value: "Full-stack", label: "site + hosting + support" },
     ],
 
     whyTitle: "Why work with me",
@@ -309,6 +309,41 @@ export const t = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "detailing-sites",
+    icon: "🚗",
+    accent: "#d6b26e",
+    status: { ru: "В работе", en: "Live" },
+    title: { ru: "Сайты для детейлинг-студий", en: "Websites for detailing studios" },
+    short: {
+      ru: "Платформа сайтов для автобизнеса: онлайн-запись, калькулятор цены по классу авто, «до/после», отзывы из 2ГИС и редактор для владельца с телефона.",
+      en: "Website platform for car businesses: online booking, price calculator by car class, before/after slider, 2GIS reviews and a phone-friendly owner editor.",
+    },
+    details: {
+      ru: "Один движок на Next.js обслуживает сайты многих студий. Владелец сам меняет фото, услуги, цены, отзывы и вопросы — без программиста.",
+      en: "One Next.js engine serves many studios. Owners update photos, services, prices, reviews and FAQ themselves — no developer needed.",
+    },
+    challenge: {
+      ru: "У большинства студий вместо сайта Telegram-канал или медленный сайт на конструкторе: клиенты из поиска уходят, а обновлять цены и фото некому.",
+      en: "Most studios have a Telegram channel or a slow site builder page instead of a website: search visitors leave and nobody keeps prices and photos current.",
+    },
+    approach: {
+      ru: "Next.js + Vercel Blob, мобильная вёрстка со свайп-каруселями, заявки в Telegram-бота, сайт собирается из карточки 2ГИС и дорабатывается в редакторе.",
+      en: "Next.js + Vercel Blob, mobile-first layout with swipe carousels, leads to a Telegram bot, site is generated from the 2GIS listing and refined in the editor.",
+    },
+    result: {
+      ru: "Сайт запускается за 2–3 дня, грузится быстро на телефоне, а поддержка сводится к паре кликов в редакторе.",
+      en: "A site launches in 2–3 days, loads fast on mobile, and maintenance is a couple of clicks in the editor.",
+    },
+    deliverables: {
+      ru: ["Онлайн-запись и оценка по фото", "Калькулятор цены по классу авто", "Редактор для владельца", "Отзывы из 2ГИС"],
+      en: ["Online booking and photo estimate", "Price calculator by car class", "Owner editor", "2GIS reviews"],
+    },
+    tags: ["Next.js", "TypeScript", "Vercel Blob", "Telegram API"],
+    liveLink: "https://dv-sites.vercel.app/gloss-lab",
+    githubLink: null,
+    image: null,
+  },
   {
     slug: "price-tracker",
     icon: "📈",
