@@ -52,13 +52,13 @@ export const t = {
     // ── Hero ──────────────────────────────────────────────────────────────
     heroTitle: "Сайт для вашего бизнеса с онлайн-записью — за 2–3 дня",
     heroSubtitle:
-      "Делаю сайты для детейлинга, автосервисов и локального бизнеса: запись в WhatsApp и Telegram, фото работ, отзывы из 2ГИС и редактор, где вы сами меняете цены и фото. Telegram-боты и веб-сервисы — тоже.",
+      "Делаю сайты для детейлинга, автосервисов и локального бизнеса: запись в WhatsApp, Telegram или вашу онлайн-запись, фото работ и отзывы из 2ГИС. Сайт переходит вам — ваш домен и хостинг, без абонентской платы.",
     heroPrimary: "Смотреть проекты",
     heroTelegram: "Обсудить задачу",
     heroStats: [
       { value: "2–3 дня",    label: "до запуска сайта" },
-      { value: "Редактор",   label: "фото и цены меняете сами" },
-      { value: "Full-stack", label: "сайт + хостинг + поддержка" },
+      { value: "Ваш сайт",   label: "без абонентской платы" },
+      { value: "Под ключ",   label: "домен, хостинг, запуск" },
     ],
 
     // ── Why me ────────────────────────────────────────────────────────────
@@ -190,13 +190,13 @@ export const t = {
 
     heroTitle: "A website for your business with online booking — in 2–3 days",
     heroSubtitle:
-      "I build websites for detailing studios, car services and local businesses: booking via WhatsApp and Telegram, work photos, reviews and an editor where you change prices and photos yourself. Telegram bots and web services too.",
+      "I build websites for detailing studios, car services and local businesses: booking via WhatsApp, Telegram or your booking system, work photos and reviews. The site is yours — your domain and hosting, no monthly fee.",
     heroPrimary: "View projects",
     heroTelegram: "Discuss your task",
     heroStats: [
       { value: "2–3 days",   label: "to launch" },
-      { value: "Editor",     label: "update photos & prices yourself" },
-      { value: "Full-stack", label: "site + hosting + support" },
+      { value: "Yours",      label: "no monthly fee" },
+      { value: "Turnkey",    label: "domain, hosting, launch" },
     ],
 
     whyTitle: "Why work with me",
@@ -316,30 +316,30 @@ export const projects: Project[] = [
     status: { ru: "В работе", en: "Live" },
     title: { ru: "Сайты для детейлинг-студий", en: "Websites for detailing studios" },
     short: {
-      ru: "Платформа сайтов для автобизнеса: онлайн-запись, калькулятор цены по классу авто, «до/после», отзывы из 2ГИС и редактор для владельца с телефона.",
-      en: "Website platform for car businesses: online booking, price calculator by car class, before/after slider, 2GIS reviews and a phone-friendly owner editor.",
+      ru: "Сайты для автобизнеса: онлайн-запись, калькулятор цены по классу авто, «до/после», отзывы из 2ГИС. Передаются владельцу на его домен без абонентской платы.",
+      en: "Websites for car businesses: online booking, price calculator by car class, before/after slider, 2GIS reviews. Handed over to the owner's domain with no monthly fee.",
     },
     details: {
-      ru: "Один движок на Next.js обслуживает сайты многих студий. Владелец сам меняет фото, услуги, цены, отзывы и вопросы — без программиста.",
-      en: "One Next.js engine serves many studios. Owners update photos, services, prices, reviews and FAQ themselves — no developer needed.",
+      ru: "Сайт собирается на реальных данных студии — отзывах, фото, услугах и режиме работы из 2ГИС — и передаётся владельцу на его домен. Никакой абонентской платы.",
+      en: "Each site is built from the studio's real data — reviews, photos, services and hours from 2GIS — and handed over to the owner's domain. No monthly fee.",
     },
     challenge: {
-      ru: "У большинства студий вместо сайта Telegram-канал или медленный сайт на конструкторе: клиенты из поиска уходят, а обновлять цены и фото некому.",
-      en: "Most studios have a Telegram channel or a slow site builder page instead of a website: search visitors leave and nobody keeps prices and photos current.",
+      ru: "У большинства студий вместо сайта Telegram-канал или медленный сайт на конструкторе: клиенты из поиска уходят к конкурентам.",
+      en: "Most studios have a Telegram channel or a slow site builder page instead of a website: search visitors go to competitors.",
     },
     approach: {
-      ru: "Next.js + Vercel Blob, мобильная вёрстка со свайп-каруселями, заявки в Telegram-бота, сайт собирается из карточки 2ГИС и дорабатывается в редакторе.",
-      en: "Next.js + Vercel Blob, mobile-first layout with swipe carousels, leads to a Telegram bot, site is generated from the 2GIS listing and refined in the editor.",
+      ru: "Next.js, мобильная вёрстка со свайп-каруселями, сайт собирается из карточки 2ГИС, дорабатывается под студию и передаётся владельцу готовыми файлами на его хостинг.",
+      en: "Next.js, mobile-first layout with swipe carousels; the site is generated from the 2GIS listing, tailored to the studio and handed over as files to the owner's hosting.",
     },
     result: {
-      ru: "Сайт запускается за 2–3 дня, грузится быстро на телефоне, а поддержка сводится к паре кликов в редакторе.",
-      en: "A site launches in 2–3 days, loads fast on mobile, and maintenance is a couple of clicks in the editor.",
+      ru: "Сайт запускается за 2–3 дня, быстро грузится на телефоне и полностью принадлежит владельцу.",
+      en: "A site launches in 2–3 days, loads fast on mobile and fully belongs to the owner.",
     },
     deliverables: {
-      ru: ["Онлайн-запись и оценка по фото", "Калькулятор цены по классу авто", "Редактор для владельца", "Отзывы из 2ГИС"],
-      en: ["Online booking and photo estimate", "Price calculator by car class", "Owner editor", "2GIS reviews"],
+      ru: ["Онлайн-запись и оценка по фото", "Калькулятор цены по классу авто", "Отзывы из 2ГИС", "Передача на домен владельца"],
+      en: ["Online booking and photo estimate", "Price calculator by car class", "2GIS reviews", "Handover to owner's domain"],
     },
-    tags: ["Next.js", "TypeScript", "Vercel Blob", "Telegram API"],
+    tags: ["Next.js", "TypeScript", "2GIS", "SEO"],
     liveLink: "https://dv-sites.vercel.app/gloss-lab",
     githubLink: null,
     image: null,
